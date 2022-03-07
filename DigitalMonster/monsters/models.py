@@ -18,7 +18,7 @@ class Attribute(models.Model):
     attribute_name = models.CharField(max_length=10)
     
     def __str__(self):
-        return "id: " + str(self.id) +' -> '+ +  self.attribute_name
+        return "id: " + str(self.id) +' -> ' +  self.attribute_name
 
 
 class Baby(models.Model):
