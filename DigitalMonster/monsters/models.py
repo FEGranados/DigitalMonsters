@@ -4,21 +4,21 @@ class Stage(models.Model):
     stage_name = models.CharField(max_length=20) 
 
     def __str__(self):
-        return self.stage_name
+        return self.id +': '+  self.stage_name
 
 
 class Type(models.Model):
     type_name = models.CharField(max_length=10)
 
     def __str__(self):
-        return self.type_name
+        return self.id +': '+  self.type_name
 
 
 class Attribute(models.Model):
     attribute_name = models.CharField(max_length=10)
     
     def __str__(self):
-        return self.attribute_name
+        return self.id +': '+  self.attribute_name
 
 
 class Baby(models.Model):
@@ -29,7 +29,7 @@ class Baby(models.Model):
     attribute = models.ForeignKey(Attribute,on_delete= models.CASCADE)
 
     def __str__(self):
-        return self.baby_name
+        return self.id +': '+  self.baby_name
 
 
 class Training(models.Model):
@@ -40,7 +40,7 @@ class Training(models.Model):
     attribute = models.ForeignKey(Attribute,on_delete= models.CASCADE)
 
     def __str__(self):
-        return self.training_name
+        return self.id +': '+  self.training_name
 
 
 class Rookie(models.Model):
@@ -51,7 +51,7 @@ class Rookie(models.Model):
     attribute = models.ForeignKey(Attribute,on_delete= models.CASCADE)
 
     def __str__(self):
-        return self.rookie_name
+        return self.id +': '+  self.rookie_name
 
 
 class Champion(models.Model):
@@ -62,7 +62,7 @@ class Champion(models.Model):
     attribute = models.ForeignKey(Attribute,on_delete= models.CASCADE)
     
     def __str__(self):
-        return self.champion_name
+        return self.id +': '+  self.champion_name
 
 
 class First(models.Model):
@@ -70,7 +70,7 @@ class First(models.Model):
     training = models.ForeignKey(Training,on_delete= models.CASCADE)
 
     def __str__(self):
-        return self.pk
+        return self.id
 
 
 class Second(models.Model):
@@ -78,7 +78,7 @@ class Second(models.Model):
     rookie = models.ForeignKey(Rookie,on_delete= models.CASCADE)
 
     def __str__(self):
-        return self.pk
+        return self.id
 
 
 class Third(models.Model):
@@ -86,4 +86,4 @@ class Third(models.Model):
     champion = models.ForeignKey(Champion,on_delete= models.CASCADE)
 
     def __str__(self):
-        return self.pk
+        return self.id
