@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{champion.champion_name}}</title>
+</head>
+<body>
+    <div class="content">
+        <div class="overflow">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Name</th>
+                        <td>{{champion.champion_name}}</td>
+                    </tr>
+                    <tr>
+                        <th>Stage</th>
+                        <td>{{champion.stage}}</td>
+                    </tr>
+                    <tr>
+                        <th>Attribute</th>
+                        <td>{{champion.attribute}}</td>
+                    </tr>
+                    <tr>
+                        <th>Type</th>
+                        <td>{{champion.typ}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <h3>Description</h3>
+        <div class="info">
+            <p>{{champion.champion_description}}</p>
+        </div>
+        {% if devolution_list %}
+            <div class="evolution">
+                <h3>Evolves from</h3>
+                <div class="overflow">
+                    <table class="table">
+                      <thead>
+                          <tr>
+                              <th>Name</th>
+                              <th>Stage</th>
+                              <th>Attribute</th>
+                              <th>Type</th>
+                          </tr>
+                      </thead>
+                        {% for devolution in devolution_list %}
+                        <tbody>
+                        <td><a href="{% url 'monsters:training' devolution.rookie.id %}">{{devolution.rookie}}</a></td>
+                        <td>{{devolution.rookie.stage}}</td>
+                        <td>{{devolution.rookie.attribute}}</td>
+                        <td>{{devolution.rookie.typ}}</td>
+                        </tbody> 
+                        {% endfor %}
+                    </table>
+                </div> 
+            </div> 
+        {% endif %}
+        <div class="button">
+            <a href="{% url 'monsters:index'%}"><button>Return to index</button></a>
+        </div>
+    </div>
+</body>
+</html>

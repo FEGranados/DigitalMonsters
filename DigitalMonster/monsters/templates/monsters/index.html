@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Monster</title>
+</head>
+<body>
+    {% if latest_baby_list or latest_taining_list or latest_rookie_list or latest_champion_list %}
+        <div class="body" >
+            <h1> Evolution Phases </h1> 
+
+            <div class= "t1">
+                <h1>Training 1</h1>
+                <ul>
+                    {% for baby in latest_baby_list %}
+                        <li><a href="{% url 'monsters:baby' baby.id %}">{{baby.baby_name}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class= "t2">
+                <h1>Training 2</h1>
+                <ul>
+                    {% for training in latest_training_list %}
+                        <li><a href="{% url 'monsters:training' training.id %}">{{training.training_name}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class= "rookie">
+                <h1>Rookie</h1>
+                <ul>
+                    {% for rookie in latest_rookie_list %}
+                        <li><a href="{% url 'monsters:rookie' rookie.id %}">{{rookie.rookie_name}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class= "champion">
+                <h1>Champion</h1>
+                <ul>
+                    {% for champion in latest_champion_list %}
+                        <li><a href="{% url 'monsters:champion' champion.id %}">{{champion.champion_name}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% else %}
+        <p>No Digital Monster available</p>
+    {% endif %}
+</body>
+</html>
+

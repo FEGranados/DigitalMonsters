@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{training.training_name}}</title>
+</head>
+<body>
+    <div class="content">
+        <div class="overflow">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Name</th>
+                        <td>{{training.training_name}}</td>
+                    </tr>
+                    <tr>
+                        <th>Stage</th>
+                        <td>{{training.stage}}</td>
+                    </tr>
+                    <tr>
+                        <th>Attribute</th>
+                        <td>{{training.attribute}}</td>
+                    </tr>
+                    <tr>
+                        <th>Type</th>
+                        <td>{{training.typ}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <h3>Description</h3>
+        <div class="info">
+            <p>{{training.training_description}}</p>
+        </div>
+        {% if devolution_list %}
+            <div class="devolution">
+                <h3>Evolves from</h3>
+                <div class="overflow">
+                    <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Stage</th>
+                            <th>Attribute</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                        {% for devolution in devolution_list %}
+                        <tbody>
+                        <td><a href="{% url 'monsters:baby' devolution.baby.id %}">{{devolution.baby}}</a></td>
+                        <td>{{devolution.baby.stage}}</td>
+                        <td>{{devolution.baby.attribute}}</td>
+                        <td>{{devolution.baby.typ}}</td>
+                        </tbody> 
+                        {% endfor %}
+                    </table>
+                </div> 
+            </div> 
+        {% endif %}
+
+        {% if evolution_list %}
+            <div class="evolution">
+                <h3>Evolves to</h3>
+                <div class="overflow">
+                    <table class="table">
+                      <thead>
+                          <tr>
+                              <th>Name</th>
+                              <th>Stage</th>
+                              <th>Attribute</th>
+                              <th>Type</th>
+                          </tr>
+                      </thead>
+                        {% for evolution in evolution_list %}
+                        <tbody>
+                        <td><a href="{% url 'monsters:rookie' evolution.rookie.id %}">{{evolution.rookie}}</a></td>
+                        <td>{{evolution.rookie.stage}}</td>
+                        <td>{{evolution.rookie.attribute}}</td>
+                        <td>{{evolution.rookie.typ}}</td>
+                        </tbody> 
+                        {% endfor %}
+                    </table>
+                </div> 
+            </div> 
+        {% endif %}
+        <div class="button">
+            <a href="{% url 'monsters:index'%}"><button>Return to index</button></a>
+        </div>
+    </div>
+</body>
+</html>
