@@ -49,7 +49,7 @@
                       </thead>
                         {% for devolution in devolution_list %}
                         <tbody>
-                        <td><a href="{% url 'monsters:training' devolution.rookie.id %}">{{devolution.rookie}}</a></td>
+                        <td><a href="{% url 'monsters:rookie' devolution.rookie.id %}">{{devolution.rookie}}</a></td>
                         <td>{{devolution.rookie.stage}}</td>
                         <td>{{devolution.rookie.attribute}}</td>
                         <td>{{devolution.rookie.typ}}</td>
