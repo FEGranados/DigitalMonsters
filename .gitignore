@@ -7,8 +7,11 @@
 *.pot
 *.pyc
 __pycache__/
+DigitalMonster/DigitalMonster/__pycache__
+DigitalMonster/monsters/__pycache__
 local_settings.py
 db.sqlite3
+DigitalMonster/db.sqlite3
 db.sqlite3-journal
 media
 
