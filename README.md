@@ -48,9 +48,9 @@ $ docker run -d -p 8000:8000 --name monsters monsters:v1
 
 ## App
 
-Monsters: `http://127.0.0.1:8000//monsters/`.
+Monsters: `http://127.0.0.1:8000/monsters/`
 
-Admin: `http://127.0.0.1:8000/admin/`.
+Admin: `http://127.0.0.1:8000/admin/`
 | User | Password |
 | --- | ----------- |
 | esleydergranados@hotmail.com | TokyoGhoul |
